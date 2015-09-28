@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script>
+		/* Definición de clase */
+		function Perro(){
+
+			/* this es el contexto */
+			
+			/* Definición de atributos */		
+			this.nombre;
+			this.raza;
+			this.tamano;
+			this.entrenado;
+			this.edad;
+			this.color = "blanco";
+
+			/* Definición de métodos */
+			this.saltar = function(){};
+			this.correr = function(){};
+			this.ladrar = function(){};
+			this.informacion = function(){
+				alert("Nombre del perro: " + this.nombre);
+				alert("Color del perro: " + this.color);
+			};
+		}
+
+		/* Creación de objeto */
+		var objPerro = new Perro();
+
+		/* Asignando valores a los atributos */
+		objPerro.nombre = "Dandy";
+		objPerro.raza = "Siberiano";
+		objPerro.tamano = "Mediano";
+		objPerro.entrenado = true;
+		objPerro.edad = 13;
+		objPerro.color = "negro";
+
+		/* Ejecutando el método informacion */
+		objPerro.informacion();
+
+		/* Creando segundo objeto */
+		var objPerro2 = new Perro();
+		/* Asignando valores a los atributos */
+		objPerro2.nombre = "Tati";
+
+		/* Ejecutando el método información */
+		objPerro2.informacion();
+
+		/* Inspeccionar el objeto */
+		console.log(objPerro);
+
+	</script>
+
+
+</body>
+</html>
