@@ -75,5 +75,5 @@
 		var listaFilas = document.getElementsByTagName("tr");
 
 		for(var ind=0; ind < listaFilas.length; ind++) {
-			listaFilas[ind].addEventListener("click", mostrarInfo);
+			listaFilas[ind].addEventListener("click", mostrarInfo;
 		}
