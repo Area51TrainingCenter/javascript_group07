@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title></title>
+	<meta charset="utf8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">	
+
+	<style>
+		button {
+			width:150px;
+			height: 64px;
+			background-color: white;
+			font-family: Verdana;
+			font-size:25px;
+			text-align: left;
+			transition:all 1s linear;
+		}
+
+		.cargador {
+			width:200px;
+			background-image: url(cargador.gif);
+			background-repeat: no-repeat;
+			background-position: right top;
+			transform: rotate(30deg);
+			-webkit-transform: rotate(30deg) translate(400px, 400px);
+		}
+
+		.desactivado {
+			background: red;
+			color:white;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+		
+			
+				<label for="">Registro</label>
+				<input type="text" placeholder="Ingrese tu nombre">
+				<button id="btn">Grabar</button>
+				<button id="btnActivar">Activado</button>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script src="script05.js"></script>
+</body>
+</html>
