@@ -1,0 +1,17 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "Chat creado para la clase de Javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Sergio Hidalgo",
+  "license": "ISC",
+  "dependencies": {
+    "websocket": "^1.0.22"
+  }
+}
