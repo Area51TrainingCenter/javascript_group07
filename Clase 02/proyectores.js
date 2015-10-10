@@ -4,5 +4,5 @@ function Proyector(nombre, marca, modelo, numInventario, lumens, proveedor){
 	this.proveedor = proveedor;
 }
 
-Proyector.prototype = Object.create(Equipos);
+Proyector.prototype = Object.create(Equipos.prototype);
 Proyector.prototype.constructor = Proyector;

@@ -3,5 +3,5 @@ function Fotocopiadora(nombre, marca, modelo, numInventario, multifuncional){
 	this.lumens = multifuncional;
 }
 
-Fotocopiadora.prototype = Object.create(Equipos);
+Fotocopiadora.prototype = Object.create(Equipos.prototype);
 Fotocopiadora.prototype.constructor = Fotocopiadora;

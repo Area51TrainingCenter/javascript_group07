@@ -3,7 +3,7 @@ function Impresora(nombre, marca, modelo, numInventario, localRed){
 	this.localRed = localRed;
 }
 
-Impresora.prototype = Object.create(Equipos);
+Impresora.prototype = Object.create(Equipos.prototype);
 Impresora.prototype.constructor = Impresora;
 
 

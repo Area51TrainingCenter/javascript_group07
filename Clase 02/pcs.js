@@ -6,7 +6,7 @@ function PC(nombre, marca, modelo, numInventario, memoria, placa){
 }
 
 /* Hereda de la clase Equipos */
-PC.prototype = Object.create(Equipos);
+PC.prototype = Object.create(Equipos.prototype);
 PC.prototype.constructor = PC;
 
 PC.prototype.mostrarInfo = function(){
