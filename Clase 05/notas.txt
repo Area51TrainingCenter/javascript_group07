@@ -15,3 +15,6 @@ bower install bootstrap
 
 Para instalar el package control de Sublime
 https://packagecontrol.io/installation#st3
+
+Para instalar el módulo ladda
+bower install angular-ladda

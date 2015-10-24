@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<meta charset="utf8">
+</head>
+<body ng-controller="controlador as ctrl">
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Indice</th>
+						<th>Nombre</th>
+						<th>Correo</th>
+						<th>Fecha</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="persona in ctrl.personas" ng-style="{'background-color': $index==ctrl.filaSeleccionada ? '#ccc': ''}" ng-click="ctrl.seleccionarFila(persona, $index)">
+						<td><a name="{{$index}}"></a>{{$index}}</td>
+						<td>{{persona.nombre}}</td>
+						<td>{{persona.correo}}</td>
+						<td>{{persona.fecha | date: "shortDate" }}</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h1>Detalle</h1>
+				</div>
+				<div class="panel-body">
+					<dl ng-show="ctrl.personaSeleccionada">
+						<dt>Nombre</dt>
+						<dd>{{ctrl.personaSeleccionada.nombre}}</dd>
+						<dt>País</dt>
+						<dd>{{ctrl.personaSeleccionada.pais}}</dd>
+						<dt>Ciudad</dt>
+						<dd>{{ctrl.personaSeleccionada.ciudad}}</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+
+<script src="script01.js"></script>
+</body>
+</html>

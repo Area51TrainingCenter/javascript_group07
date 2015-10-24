@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="appPrincipal">
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/ladda/dist/ladda-themeless.min.css">
+	<meta charset="utf8">
+</head>
+<body ng-controller="formController as ctrl">
+<h1>Validación con Angular</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<form name="formularioForm" ng-submit="formularioForm.$valid && ctrl.enviarFormulario()" novalidate>
+				<div class="form-group" ng-class="{'has-error': !formularioForm.txtNombre.$valid && !formularioForm.txtNombre.$pristine, 'has-success': formularioForm.txtNombre.$valid && !formularioForm.txtNombre.$pristine}">
+					<label>Nombre</label>
+					<input type="text" class="form-control" ng-model="ctrl.formulario.nombre" name="txtNombre" required>
+				<p class="help-block" ng-show="formularioForm.txtNombre.$error.required && !formularioForm.txtNombre.$valid && !formularioForm.txtNombre.$pristine">El nombre es requerido</p>
+
+				</div>
+				<div class="form-group" ng-class="{'has-error': !formularioForm.txtCorreo.$valid && !formularioForm.txtCorreo.$pristine}">
+					<label>Correo</label>
+					<input type="email" class="form-control" ng-model="ctrl.formulario.correo" name="txtCorreo" required>
+					<p class="help-block" ng-show="formularioForm.txtCorreo.$error.required && !formularioForm.txtCorreo.$valid && !formularioForm.txtCorreo.$pristine">El correo es requerido</p>
+
+				<p class="help-block" ng-show="formularioForm.txtCorreo.$error.email && !formularioForm.txtCorreo.$valid && !formularioForm.txtCorreo.$pristine">El correo no tiene el formato correcto</p>
+				</div>
+				<div class="form-group" ng-class="{'has-error': !formularioForm.txtContrasena.$valid && !formularioForm.txtContrasena.$pristine}">
+					<label>Contraseña</label>
+					<input type="password" class="form-control" ng-model="ctrl.formulario.contrasena" required name="txtContrasena">
+					<p class="help-block" ng-show="formularioForm.txtContrasena.$error.required && !formularioForm.txtContrasena.$valid && !formularioForm.txtContrasena.$pristine">La contraseña es requerida</p>					
+				</div>	
+
+				<div class="form-group">
+					<button 
+						type="submit" 
+						class="btn btn-success btn-lg"
+						ladda="ctrl.cargando"
+						data-type="expand-right"
+					>Enviar</button>
+					<span>{{ctrl.mensajeCargando}}</span>
+				</div>	
+
+				<pre>formularioForm.txtNombre.$valid = {{formularioForm.txtNombre.$valid}}</pre>
+				<pre>formularioForm.txtNombre.$pristine = {{formularioForm.txtNombre.$pristine}}</pre>
+
+				<pre>formularioForm.txtCorreo.$valid = {{formularioForm.txtCorreo.$valid}}</pre>
+				<pre>formularioForm.txtCorreo.$pristine = {{formularioForm.txtCorreo.$pristine}}</pre>
+
+				<pre>formularioForm.txtContrasena.$valid = {{formularioForm.txtContrasena.$valid}}</pre>
+				<pre>formularioForm.txtContrasena.$pristine = {{formularioForm.txtContrasena.$pristine}}</pre>
+
+
+				<pre>formularioForm.$valid = {{formularioForm.$valid}}</pre>
+				<pre>formularioForm.$pristine = {{formularioForm.$pristine}}</pre>
+				<pre>{{formularioForm | json}}</pre>			
+			</form>			
+		</div>
+
+	</div>
+</div>
+
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/ladda/dist/spin.min.js"></script>
+<script src="bower_components/ladda/dist/ladda.min.js"></script>
+<script src="bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+
+<script src="script01.js"></script>
+
+</body>
+</html>
