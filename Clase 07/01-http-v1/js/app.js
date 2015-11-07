@@ -1,5 +1,5 @@
 angular
-	.module("app", [])
+	.module("app", ['angularSpinner'])
 	.factory("globales", function(){
 		var obj = {};
 		obj.libroSeleccionado = {};
@@ -22,21 +22,26 @@ angular
 				]
 		*/
 		this.libros = [];
+		this.estaCargando = true;
 		var ref = this;
 
 		$http
 			.get("http://area51.tibajodemanda.com/libros/listarTodo")
 			.then(function(obj){
 				ref.libros = obj.data;
+				ref.estaCargando=false;
 			});
 
 		this.edicion = function(libro) {
 			globales.libroSeleccionado = libro 
 		}
 	}])
-	.controller("librosEdicionControlador",["$scope", "$http", "globales", function($scope, $http, globales){
+	.controller("librosEdicionControlador",["$window", "$scope", "$http", "globales", function($window, $scope, $http, globales){
 
 		var ref= this;
+		/*
+			this.libroAEditar = {id: ..., titulo: ..., autor: ..., isbn: ...}
+		*/
 		this.libroAEditar = globales.libroSeleccionado;
 
 		/* Observa cualquier cambio en la variable "libroSeleccionado"
@@ -47,6 +52,32 @@ angular
 	       	//la variable "libroAEditar" de este controlador
 	       	ref.libroAEditar = newVal;
 	    });
+
+	    this.actualizar = function(){
+	    	$http
+	    		.put("http://area51.tibajodemanda.com/libros/actualizar/"+this.libroAEditar.id, this.libroAEditar)
+	    		.then(function(){
+	    			ref.libroAEditar = {};
+	    		})
+	    		.catch(function(err){
+	    			console.log(err);
+	    		})
+	    };
+
+	    this.eliminar = function() {
+	    	if($window.confirm("¿Está seguro de querer eliminar?")) {
+		    	$http
+		    		.delete("http://area51.tibajodemanda.com/libros/eliminar/"+this.libroAEditar.id)
+		    		.then(function(){
+		    			ref.libroAEditar = {};
+		    		})
+		    		.catch(function(err){
+		    			console.log(err);
+		    		})
+		    	}
+	    }
+
+
 
 
 	}])

@@ -29,14 +29,21 @@
 							<tr ng-repeat="libro in ctrlListado.libros">
 								<td>{{libro.titulo}}</td>
 								<td>{{libro.autor}}</td>
-								<td><a href class="btn btn-success" ng-click="ctrlListado.edicion(libro)">Edición</a></td>
+								<td>
+								<a href class="btn btn-success" ng-click="ctrlListado.edicion(libro)">Edición</a>
+								</td>
 							</tr>
 						<!-- Fin -->	
 						</tbody>
 					</table>
 				</div>
 			</div>
+			<div ng-show="ctrlListado.estaCargando" style="position:relative;margin-top:180px">
+				<span us-spinner="{radius:30, width:8, length: 16}"></span>
+				<p style="text-align:center;padding-top:120px">Cargando ...</p>
+			</div>			
 		</div>
+
 		<!-- Fin Vista Listado -->
 
 		<!-- Vista Edición -->
@@ -46,7 +53,7 @@
 					<h1>Edición</h1>
 				</div>
 				<div class="panel-body">
-					<form>
+					<form name="formularioLibro" ng-submit="formularioLibro.$valid && ctrlEdicion.actualizar()" novalidate>
 						<div class="form-group">
 							<label>Título</label>
 							<input type="text" ng-model="ctrlEdicion.libroAEditar.titulo" required class="form-control" />
@@ -58,18 +65,55 @@
 						<div class="form-group">
 							<label>ISBN</label>
 							<input type="text" ng-model="ctrlEdicion.libroAEditar.isbn" required class="form-control" />
-						</div>												
+						</div>	
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Actualizar</button>
+							<button class="btn btn-danger pull-right" ng-click="ctrlEdicion.eliminar()">Eliminar</button>
+						</div>											
 					</form>
 				</div>
 			</div>
 		</div>
 		<!-- Fin Vista Edición -->
 
+		<!-- Vista Nuevo -->
+		<div class="col-md-4" ng-controller="librosEdicionControlador as ctrlEdicion">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1>Edición</h1>
+				</div>
+				<div class="panel-body">
+					<form name="formularioLibro" ng-submit="formularioLibro.$valid && ctrlEdicion.actualizar()" novalidate>
+						<div class="form-group">
+							<label>Título</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.titulo" required class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Autor</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.autor" required class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>ISBN</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.isbn" required class="form-control" />
+						</div>	
+						<div class="form-group">
+							<button type="submit" class="btn btn-success">Actualizar</button>
+							<button class="btn btn-danger pull-right" ng-click="ctrlEdicion.eliminar()">Eliminar</button>
+						</div>											
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- Fin Vista Nuevo -->
+
+
 	</div>
 </div>
 
 
 <script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/spin.js/spin.js"></script>
+<script src="/bower_components/angular-spinner/angular-spinner.js"></script>
 <script src="/01-http-v1/js/app.js"></script>
 
 </body>
