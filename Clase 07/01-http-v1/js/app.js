@@ -1,6 +1,11 @@
 angular
 	.module("app", [])
-	.controller("librosListadoControlador",["$http", "$rootScope", function($http, $rootScope){
+	.factory("globales", function(){
+		var obj = {};
+		obj.libroSeleccionado = {};
+		return obj;
+	})
+	.controller("librosListadoControlador",["$http", "globales", function($http, globales){
 		/*
 			Convención:
 				GET		: Todo tipo de consultas
@@ -17,7 +22,6 @@ angular
 				]
 		*/
 		this.libros = [];
-		$rootScope.libroSeleccionado = undefined;
 		var ref = this;
 
 		$http
@@ -27,9 +31,22 @@ angular
 			});
 
 		this.edicion = function(libro) {
-			$rootScope.libroSeleccionado = libro;
+			globales.libroSeleccionado = libro 
 		}
 	}])
-	.controller("librosEdicionControlador",["$http", "$rootScope", function($http, $rootScope){
+	.controller("librosEdicionControlador",["$scope", "$http", "globales", function($scope, $http, globales){
+
+		var ref= this;
+		this.libroAEditar = globales.libroSeleccionado;
+
+		/* Observa cualquier cambio en la variable "libroSeleccionado"
+			de la factoria "globales"
+		*/
+	    $scope.$watch(function() { return globales.libroSeleccionado; }, function(newVal, oldVal) {
+	       	//Si cambia la variable libroSeleccionado, se actualiza
+	       	//la variable "libroAEditar" de este controlador
+	       	ref.libroAEditar = newVal;
+	    });
+
 
 	}])

@@ -7,10 +7,10 @@
 </head>
 <body>
 
-<div class="container" ng-controller="librosListadoControlador as ctrlListado">
+<div class="container">
 	<div class="row">
 		<!-- Vista Listado -->
-		<div class="col-md-8">
+		<div class="col-md-8" ng-controller="librosListadoControlador as ctrlListado">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h1>Listado de libros</h1>	
@@ -39,18 +39,31 @@
 		</div>
 		<!-- Fin Vista Listado -->
 
-		<div class="col-md-4">
+		<!-- Vista Edición -->
+		<div class="col-md-4" ng-controller="librosEdicionControlador as ctrlEdicion">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h1>Edición</h1>
 				</div>
 				<div class="panel-body">
 					<form>
-
+						<div class="form-group">
+							<label>Título</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.titulo" required class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Autor</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.autor" required class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>ISBN</label>
+							<input type="text" ng-model="ctrlEdicion.libroAEditar.isbn" required class="form-control" />
+						</div>												
 					</form>
 				</div>
 			</div>
 		</div>
+		<!-- Fin Vista Edición -->
 
 	</div>
 </div>
