@@ -1,6 +1,6 @@
 angular
 	.module("app", [])
-	.controller("librosListadoControlador",["$http", function($http){
+	.controller("librosListadoControlador",["$http", "$rootScope", function($http, $rootScope){
 		/*
 			Convención:
 				GET		: Todo tipo de consultas
@@ -30,6 +30,6 @@ angular
 			$rootScope.libroSeleccionado = libro;
 		}
 	}])
-	.controller("librosEdicionControlador",["$http", function($http){
+	.controller("librosEdicionControlador",["$http", "$rootScope", function($http, $rootScope){
 
 	}])
