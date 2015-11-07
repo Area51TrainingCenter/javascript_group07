@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf8">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<style>
+		.conSombra {
+			width:100%;
+			height:200px;
+			background-color: #ccc;
+			border:1px solid black;
+			box-shadow: 3px 2px 3px black;
+		}
+	</style>
+	<base href="/01-http-v4/" />
+</head>
+<body>
+
+<div class="container">
+
+<!-- No se olviden de poner las comillas dobles y las simples -->
+	<ng-include src="'includes/menu.html'"></ng-include>
+
+	<div class="row">
+
+		<div ui-view></div>
+
+	</div>
+</div>
+
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/spin.js/spin.js"></script>
+<script src="/bower_components/angular-spinner/angular-spinner.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/01-http-v4/js/app.js"></script>
+<script src="/01-http-v4/js/controladores.js"></script>
+<script src="/01-http-v4/js/factorias.js"></script>
+<script src="/01-http-v4/js/servicios.js"></script>
+<script src="/01-http-v4/js/directivas.js"></script>
+
+</body>
+</html>
