@@ -1,0 +1,39 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1>{{ctrlLibros.titulo}}</h1>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Título</th>
+					<th>Autor</th>
+					<th>Acción</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="libro in ctrlLibros.libros">
+					<td>{{libro.id}}</td>
+					<td>{{libro.titulo}}</td>
+					<td>{{libro.autor}}</td>
+					<td><a ui-sref="edicion({id: libro.id})" class="btn btn-primary">Editar</a>
+					<a ng-click="ctrlLibros.eliminar(libro.id)" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+		  <ul class="pagination">
+		    <li ng-repeat="pagina in ctrlLibros.paginas">
+		    	<a ui-sref="listado({pagina: pagina, tamano:5})">{{pagina}}</a>
+		    </li>
+		  </ul>
+		</nav>
+
+
+
+	</div>
+</div>
+
+
