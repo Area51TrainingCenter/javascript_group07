@@ -76,8 +76,20 @@ angular
 		    		})
 		    	}
 	    }
+	}])
+	.controller("librosNuevoControlador",["$http", function($http){
+		var ref= this;
 
+		this.libroNuevo = {};
 
-
-
+	    this.grabar = function(){
+	    	$http
+	    		.post("http://area51.tibajodemanda.com/libros/crear",this.libroNuevo)
+	    		.then(function(){
+	    			ref.libroNuevo = {};
+	    		})
+	    		.catch(function(err){
+	    			console.log(err);
+	    		})
+	    };
 	}])

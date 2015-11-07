@@ -77,29 +77,28 @@
 		<!-- Fin Vista Edición -->
 
 		<!-- Vista Nuevo -->
-		<div class="col-md-4" ng-controller="librosEdicionControlador as ctrlEdicion">
+		<div class="col-md-4 pull-right" ng-controller="librosNuevoControlador as ctrlNuevo">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<h1>Edición</h1>
+					<h1>Nuevo</h1>
 				</div>
 				<div class="panel-body">
-					<form name="formularioLibro" ng-submit="formularioLibro.$valid && ctrlEdicion.actualizar()" novalidate>
+					<form name="formularioLibroNuevo" ng-submit="formularioLibroNuevo.$valid && ctrlNuevo.grabar()" novalidate>
 						<div class="form-group">
 							<label>Título</label>
-							<input type="text" ng-model="ctrlEdicion.libroAEditar.titulo" required class="form-control" />
+							<input type="text" ng-model="ctrlNuevo.libroNuevo.titulo" required class="form-control" />
 						</div>
 						<div class="form-group">
 							<label>Autor</label>
-							<input type="text" ng-model="ctrlEdicion.libroAEditar.autor" required class="form-control" />
+							<input type="text" ng-model="ctrlNuevo.libroNuevo.autor" required class="form-control" />
 						</div>
 						<div class="form-group">
 							<label>ISBN</label>
-							<input type="text" ng-model="ctrlEdicion.libroAEditar.isbn" required class="form-control" />
+							<input type="text" ng-model="ctrlNuevo.libroNuevo.isbn" required class="form-control" />
 						</div>	
 						<div class="form-group">
-							<button type="submit" class="btn btn-success">Actualizar</button>
-							<button class="btn btn-danger pull-right" ng-click="ctrlEdicion.eliminar()">Eliminar</button>
-						</div>											
+							<button type="submit" class="btn btn-success">Grabar</button>
+							</div>											
 					</form>
 				</div>
 			</div>
