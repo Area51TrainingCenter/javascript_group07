@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+	<meta charset="utf8">
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container" ng-controller="librosListadoControlador as ctrlListado">
+	<div class="row">
+		<!-- Vista Listado -->
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h1>Listado de libros</h1>	
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Título</th>
+								<th>Autor</th>
+								<th>Acción</th>
+							</tr>
+						</thead>
+						<tbody>
+						<!-- Listado de libros -->
+							<tr ng-repeat="libro in ctrlListado.libros">
+								<td>{{libro.titulo}}</td>
+								<td>{{libro.autor}}</td>
+								<td><a href class="btn btn-success" ng-click="ctrlListado.edicion(libro)">Edición</a></td>
+							</tr>
+						<!-- Fin -->	
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- Fin Vista Listado -->
+
+	</div>
+</div>
+
+
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/01-http-v1/js/app.js"></script>
+
+</body>
+</html>
