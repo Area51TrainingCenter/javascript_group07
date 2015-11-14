@@ -1,0 +1,25 @@
+{
+  "name": "App01",
+  "authors": [
+    "Sergio Hidalgo <sergio.hidalgo@adncreativa.com>"
+  ],
+  "description": "Primera app con material",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-material": "~0.11.4",
+    "angular-ui-router": "~0.2.15"
+  }
+}
