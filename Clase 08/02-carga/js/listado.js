@@ -1,3 +1,3 @@
 app.controller("listadoController", function(){
-	this.titulo = "Listado";
+	this.titulo = "Listado de Elementos";
 })
