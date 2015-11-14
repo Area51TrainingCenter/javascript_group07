@@ -14,12 +14,14 @@
 					<tr>
 						<th>Usuario</th>
 						<th>Mensaje</th>
+						<th>Acción</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr ng-repeat="mensaje in ctrl.mensajes">
 						<td>{{mensaje.usuario}}</td>
 						<td>{{mensaje.mensaje}}</td>
+						<td><a href class="btn btn-success" ng-click="ctrl.modificar(mensaje)">Modificar</a>&nbsp;<a href class="btn btn-danger" ng-click="ctrl.eliminar(mensaje)">Eliminar</a></td>
 					</tr>
 				</tbody>
 			</table>
